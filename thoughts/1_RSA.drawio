@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" version="24.7.17">
+  <diagram name="第 1 页" id="DHQ6xa-ULECi1vNcAjrM">
+    <mxGraphModel dx="1050" dy="618" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="AIPQKy2mKNSlmUIEbyn8-1" target="AIPQKy2mKNSlmUIEbyn8-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-1" value="加密算法RSA,ECC" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="AIPQKy2mKNSlmUIEbyn8-2" target="AIPQKy2mKNSlmUIEbyn8-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="AIPQKy2mKNSlmUIEbyn8-2" target="AIPQKy2mKNSlmUIEbyn8-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-2" value="公钥，私钥" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="AIPQKy2mKNSlmUIEbyn8-3" target="AIPQKy2mKNSlmUIEbyn8-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="AIPQKy2mKNSlmUIEbyn8-3" target="AIPQKy2mKNSlmUIEbyn8-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-3" value="字节数组" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-6" value="公钥和私钥的本质是一组算法相关的数值" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="360" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-10" value="标准编码格式（X.509,PKCS）" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="510" y="230" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="AIPQKy2mKNSlmUIEbyn8-11" target="AIPQKy2mKNSlmUIEbyn8-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-11" value="16进制字符串" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-16" value="本质是一个大数字，&lt;div&gt;java中以byte[]表示&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-18" value="二进制转16进制，以字符串展示" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="720" y="220" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-19" value="大数字的可视化表现形式" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1" source="AIPQKy2mKNSlmUIEbyn8-21" target="AIPQKy2mKNSlmUIEbyn8-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-21" value="privateKey" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="310" y="560" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="AIPQKy2mKNSlmUIEbyn8-22" target="AIPQKy2mKNSlmUIEbyn8-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-22" value="content" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="310" y="660" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-23" value="signature" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="790" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-26" value="content" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="650" y="660" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-27" value="signature" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="790" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AIPQKy2mKNSlmUIEbyn8-28" value="privateKey" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="650" y="555" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
