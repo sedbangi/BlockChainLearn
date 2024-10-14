@@ -35,6 +35,7 @@ contract TokenBank is IERC20Bank {
     // admin can withdraw all tokens
     function withdrawToOwner(IERC20Token tokenAddress) public {
         //withdraw current address's all tokens to current address's owner
+        require(msg.sender == owner,"Not Owner!");
         tokenAddress.transfer(owner, tokenAddress.balanceOf(address(this)));
     }
 
