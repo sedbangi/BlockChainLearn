@@ -77,9 +77,17 @@ contract CalvinERC20 is IERC20Token {
         return allowances[_owner][_spender];
     }
 
-    //user ( msg.sender ) transfer how much ( value ) tokens to bank ( bankAddress )
-    function transferWithCallback(IERC20BankV2 bankAddress, uint256 value) external {
-        transfer(address(bankAddress), value);
-        bankAddress.tokensReceived(msg.sender, address(this), value);
+    //user ( msg.sender ) transfer how much ( value ) tokens to the other ( targetAddress )
+    function transferWithCallback(address targetAddress, uint256 value) external {
+        transfer(address(targetAddress), value);
+        if (isContract(targetAddress)){
+            IERC20BankV2(targetAddress).tokensReceived(msg.sender, address(this), value);
+        }
+    }
+
+    function isContract(address addr) internal view returns (bool) {
+        uint size;
+        assembly { size := extcodesize(addr) }
+        return size > 0;
     }
 }
