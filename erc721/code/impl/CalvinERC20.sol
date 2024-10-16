@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 import "../IERC20Token.sol";
-import "../INFTMarket.sol";
+import "../IERC1363Receiver.sol";
 
 contract CalvinERC20 is IERC20Token {
     string public name;
@@ -77,14 +77,17 @@ contract CalvinERC20 is IERC20Token {
         return allowances[_owner][_spender];
     }
 
-    // who (buyer) offer how much ( value ) buy what with( nftAddress + tokenId )
-    function buyNFTWithCallback(address targetAddress, uint256 value, address nftAddress, uint tokenId) external {
-        transfer(targetAddress, value);
-
-        if (isContract(targetAddress)){
-            INFTMarket(targetAddress).tokensReceived(msg.sender, value, nftAddress, tokenId);
+    
+    function transferAndCall(address to, uint256 value, bytes calldata data) external returns (bool){
+        bool success = transfer(to, value);
+        if (!success){
+            revert("tranfer failed");
         }
 
+        if (isContract(to)){
+            IERC1363Receiver(to).tokensReceived(msg.sender, msg.sender, value, data);
+        }
+        return success;
     }
 
     function isContract(address addr) internal view returns (bool) {

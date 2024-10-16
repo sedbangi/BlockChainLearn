@@ -10,6 +10,5 @@ interface INFTMarket {
     //user but NFT token(tokenId) 
     function buyNFT(address nftAddress, uint nftTokenId, address tokenAddress) external ;
 
-    // who (buyer) offer how much ( value ) buy what( tokenId )
-    function tokensReceived(address buyerAddress, uint value, address nftAddress, uint tokenId) external;
+
 }

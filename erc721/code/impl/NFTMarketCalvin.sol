@@ -3,10 +3,12 @@ pragma solidity ^0.8.0;
 
 import "../INFTMarket.sol";
 import "../IERC20Token.sol";
+import "../IERC1363Receiver.sol";
+
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
 
-contract NFTMarketCalvin is INFTMarket{
+contract NFTMarketCalvin is INFTMarket, IERC1363Receiver{
 
     //mapping  nft(tokenId)  to  token(token address) to price(how much) ( nft priced by token(what kind of token))
     mapping (uint => mapping (address => uint)) public tokensPrice ;
@@ -43,15 +45,23 @@ contract NFTMarketCalvin is INFTMarket{
 
     // who (buyer) offer how much ( value ) buy what( tokenId )
     function tokensReceived(address buyerAddress, uint value, address nftAddress, uint tokenId) external {
+
+    }
+    //data (uint tokenId,address buyerAddress,address nftAddress) this market allow all kinds of tokens and nfts
+    function tokensReceived(address operator, address from, uint256 value, bytes calldata data) external{
+        require(msg.sender == operator,"Only operator can call this function");
+        //this market allow all kinds of tokens and nfts(so user need to specify this 3 parameters)
+        (uint tokenId,address buyerAddress, address nftAddress) = abi.decode(data,(uint,address,address));
+
         ERC721URIStorage nftCalvin = ERC721URIStorage(nftAddress);
         IERC20Token erc20Token = IERC20Token(msg.sender);
         require(nftCalvin.ownerOf(tokenId) != address(0) ,"tokenId must exist");
         require(tokensPrice[tokenId][msg.sender] == value,"paied tokens must equal to list price");
         address nftOwner = nftCalvin.ownerOf(tokenId);
         //transfer nft to buyer
-        nftCalvin.transferFrom(nftCalvin.ownerOf(tokenId), buyerAddress, tokenId);
+        nftCalvin.transferFrom(from, buyerAddress, tokenId);
         //transfer token to seller
-        erc20Token.transferFrom(buyerAddress, nftOwner, tokensPrice[tokenId][msg.sender]);
+        erc20Token.transfer(nftOwner, tokensPrice[tokenId][msg.sender]);
         //unlist tokenId
         tokensPrice[tokenId][msg.sender] = 0;
     }
