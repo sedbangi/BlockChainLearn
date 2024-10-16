@@ -5,10 +5,10 @@ import "./IERC20Token.sol";
 
 interface INFTMarket {
     //user list nft token(tokenId) with price (value)
-    function list(address nftAddress, uint nftTokenId, uint value, address tokenAddress) external ;
+    function list(uint nftTokenId, uint value) external ;
 
     //user but NFT token(tokenId) 
-    function buyNFT(address nftAddress, uint nftTokenId, address tokenAddress) external ;
+    function buyNFT(uint nftTokenId) external ;
 
 
 }
