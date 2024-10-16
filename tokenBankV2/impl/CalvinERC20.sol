@@ -81,7 +81,7 @@ contract CalvinERC20 is IERC20Token {
     function transferWithCallback(address targetAddress, uint256 value) external {
         transfer(address(targetAddress), value);
         if (isContract(targetAddress)){
-            IERC20BankV2(targetAddress).tokensReceived(msg.sender, address(this), value);
+            IERC20BankV2(targetAddress).tokensReceived(msg.sender, value);
         }
     }
 

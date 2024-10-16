@@ -6,6 +6,6 @@ import "./IERC20Token.sol";
 interface IERC20BankV2 {
 
     // who (userAddress) save how much ( value ) what( tokenAddress ) 
-    function tokensReceived(address userAddress, address tokenAddress, uint value) external ;
+    function tokensReceived(address userAddress, uint value) external ;
     
 }
