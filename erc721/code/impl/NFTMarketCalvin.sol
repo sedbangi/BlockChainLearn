@@ -53,11 +53,11 @@ contract NFTMarketCalvin is INFTMarket, IERC1363Receiver{
 
     
     function tokensReceived(address operator, address from, uint256 value, bytes calldata data) external{
-        require(msg.sender == tokenAddress,"Only operator can call this function");
+        require(msg.sender == tokenAddress,"Only Support token: tokenAddress ");
         (uint tokenId) = abi.decode(data,(uint));
 
         ERC721URIStorage nftAddress721 = ERC721URIStorage(nftAddress);
-        IERC20Token erc20Token = IERC20Token(msg.sender);
+        IERC20Token erc20Token = IERC20Token(tokenAddress);
         require(nftAddress721.ownerOf(tokenId) != address(0) ,"tokenId must exist");
         require(tokensPrice[tokenId] == value,"paied tokens must equal to list price");
         address nftOwner = nftAddress721.ownerOf(tokenId);
