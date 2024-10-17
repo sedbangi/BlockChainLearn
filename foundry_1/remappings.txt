@@ -6,3 +6,4 @@ openzeppelin-contracts/=lib/openzeppelin-contracts/
 
 ozc/=lib/openzeppelin-contracts/contracts/
 fs/=lib/forge-std/src/
+src/=src/
