@@ -2,33 +2,47 @@
 pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
-import "../src/Bank.sol";
+import "../../src/1_bank/Bank.sol";
 
 contract BankTest is Test {
     Bank public bank;
 
-    address user = address(0x12345);
-    uint256 userEthCount = 10 ether;
+    address user1 = address(0x12345);
+    address user2 = address(0x123456);
+    uint256 userEthCount1 = 10 ether;
+    uint256 userEthCount2 = 5 ether;
 
     event Deposit(address indexed user, uint amount);
 
     function setUp() public {
         bank = new Bank();
         //give user eth
-        deal(user, userEthCount);
+        deal(user1, userEthCount1);
+        deal(user2, userEthCount2);
     }
 
     function test_Event() public {
-        vm.expectEmit(true, false, false, true);
-        emit Deposit(user, userEthCount);
 
-        //deposit
-        vm.startPrank(user);
-        bank.depositETH{value: userEthCount}();
+
+        vm.expectEmit();
+        emit Deposit(user1, userEthCount1);
+
+        vm.startPrank(user1);
+        bank.depositETH{value: userEthCount1}();
         vm.stopPrank();
 
-        uint balance = bank.balanceOf(user);
 
-        assertEq(balance, userEthCount,"balance should change after deposit");
+        vm.expectEmit();
+        emit Deposit(user2, userEthCount2);
+
+        vm.startPrank(user2);
+        bank.depositETH{value: userEthCount2}();
+        vm.stopPrank();
+        
+
+        uint balance1 = bank.balanceOf(user1);
+        uint balance2 = bank.balanceOf(user2);
+        assertEq(balance1, userEthCount1,"balance should change after deposit");
+        assertEq(balance2, userEthCount2,"balance should change after deposit");
     }
 }
