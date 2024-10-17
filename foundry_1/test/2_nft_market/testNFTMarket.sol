@@ -221,7 +221,7 @@ contract testNFTMarket is Test {
             3. nft belong to : buyer
             4. unlist nft
     */
-    function test_random_list_buy  (uint randomPrice, address randomBuyer) public {
+    function testFuzz_random_list_buy (uint randomPrice, address randomBuyer) public {
         //nft price and buyer balance: 0.01-10000
         vm.assume(randomPrice>= 0.01 * 10**18 && randomPrice <=10000 * 10**18 && randomBuyer != seller);
         deal(tokenAddress,randomBuyer,randomPrice);
@@ -240,7 +240,7 @@ contract testNFTMarket is Test {
 
     function invariant_market_own_no_token() public {
         console.log("Checking market ownership of tokens...");
-        assertEq(tokenAddressInstance.balanceOf(marketAddress),1,"market own no tokens");
+        assertEq(tokenAddressInstance.balanceOf(marketAddress),0,"market own no tokens");
     }
 
 
