@@ -50,7 +50,7 @@ contract NFTMarketCalvin is INFTMarket, IERC1363Receiver {
         require(nftAddress721.ownerOf(nftTokenId) != address(0), "tokenId must exist");
         require(tokensPrice[nftTokenId] != 0, "tokenId must on list");
         address nftOwner = nftAddress721.ownerOf(nftTokenId);
-        require(msg.sender != nftOwner, BuyOwnNFT(nftTokenId));
+//        require(msg.sender != nftOwner, BuyOwnNFT(nftTokenId));
         uint tokenPrice = tokensPrice[nftTokenId];
         //transfer nft to buyer
         nftAddress721.transferFrom(nftOwner, msg.sender, nftTokenId);
@@ -70,7 +70,7 @@ contract NFTMarketCalvin is INFTMarket, IERC1363Receiver {
         ERC721URIStorage nftAddress721 = ERC721URIStorage(nftAddress);
         IERC20Token erc20Token = IERC20Token(tokenAddress);
         require(nftAddress721.ownerOf(tokenId) != address(0), "tokenId must exist");
-        require(tokensPrice[tokenId] == value, PriceNotEqual(tokenId,value));
+//        require(tokensPrice[tokenId] == value, PriceNotEqual(tokenId,value));
         address nftOwner = nftAddress721.ownerOf(tokenId);
         //transfer nft to buyer
         nftAddress721.transferFrom(nftOwner, operator, tokenId);
