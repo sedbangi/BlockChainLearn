@@ -7,6 +7,11 @@ import "../IERC20Token.sol";
 
 contract TokenBank is IERC20Bank {
 
+    modifier onlyOwner(){
+        require(msg.sender == owner,"Only owner!");
+        _;
+    }
+
     //admin ( contract deployer)
     address payable public owner;
 
@@ -15,6 +20,10 @@ contract TokenBank is IERC20Bank {
 
     constructor(){
         owner = payable (msg.sender);
+    }
+
+    function changeOwner(address ownerAddress) public onlyOwner {
+        owner = payable (ownerAddress);
     }
 
 
@@ -33,7 +42,7 @@ contract TokenBank is IERC20Bank {
     }
 
     // admin can withdraw all tokens
-    function withdrawToOwner(IERC20Token tokenAddress) public {
+    function withdrawToOwner(IERC20Token tokenAddress) public onlyOwner {
         //withdraw current address's all tokens to current address's owner
         tokenAddress.transfer(owner, tokenAddress.balanceOf(address(this)));
     }
