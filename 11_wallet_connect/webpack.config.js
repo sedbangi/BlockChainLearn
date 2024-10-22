@@ -4,7 +4,7 @@ module.exports = {
   entry: './src/index.ts', // 入口文件
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'), // 输出目录
+    path: path.resolve(__dirname, 'src'), // 输出目录
   },
   resolve: {
     extensions: ['.ts', '.js'], // 解析文件类型

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>connectWallet</title>
+</head>
+<body>
+    <!-- 1. connectWalletThroughMetaMask -->
+    <hr>
+    <div>connectWalletThroughMetaMask</div>
+    <button id="connectMetaMask">connect</button>
+    <div id="currentAccount1">account:</div>
+    
+    <!-- 2. connectWalletThroughViem -->
+    <hr>
+    <div>connectWalletThroughViem</div>
+    <button id="connectViem">connect</button>
+    <div id="currentAccount2">account:</div>
+
+    <!-- 3. connectWalletThroughWeb3Modal -->
+    <hr>
+    <div id="app">
+        <div>connectWalletThroughViem</div>
+        <button id="open-connect-modal">Open Modal</button>
+        <button id="open-network-modal">Open Networks</button>
+        <w3m-button style="margin-top: 10px;"></w3m-button>
+        <w3m-network-button></w3m-network-button>
+    </div>
+
+    <script type="module" src="./bundle.js"></script>
+</body>
+</html>
