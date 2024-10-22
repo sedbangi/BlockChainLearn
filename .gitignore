@@ -8,6 +8,8 @@ artifacts/
 
 **/node_modules/
 
+/11_wallet_connect/dist/
+
 # Compiler files
 cache/
 out/
