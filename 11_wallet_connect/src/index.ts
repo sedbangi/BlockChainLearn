@@ -61,18 +61,18 @@ export async function connectWalletThroughViem() {
 }
 
 // 3. connectWalletThroughWeb3Modal
-// 1. Get a project ID at https://cloud.reown.com
+// 3.1 Get a project ID at https://cloud.reown.com
 const projectId = 'b3f89dffdddaae5d7a39f6a9b78b3165'
 
 export const networks = [mainnet]
 
-// 2. Set up Wagmi adapter
+// 3.2 Set up Wagmi adapter
 const wagmiAdapter = new WagmiAdapter({
   projectId,
   networks
 })
 
-// 3. Configure the metadata
+// 3.3 Configure the metadata
 const metadata = {
   name: 'AppKit',
   description: 'AppKit Example',
@@ -80,7 +80,7 @@ const metadata = {
   icons: ['https://avatars.githubusercontent.com/u/179229932']
 }
 
-// 3. Create the modal
+// 3.4 Create the modal
 const modal = createAppKit({
   adapters: [wagmiAdapter],
   networks: [mainnet],
@@ -91,7 +91,7 @@ const modal = createAppKit({
   }
 })
 
-// 4. Trigger modal programaticaly
+// 3.5 Trigger modal programaticaly
 const openConnectModalBtn = document.getElementById('open-connect-modal');
 const openNetworkModalBtn = document.getElementById('open-network-modal');
 
