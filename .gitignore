@@ -6,7 +6,7 @@
 artifacts/
 /.vscode/
 
-/node_modules/
+**/node_modules/
 
 # Compiler files
 cache/
