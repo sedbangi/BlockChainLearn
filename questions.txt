@@ -1,3 +1,4 @@
-1. foundry deploy .env
+1. foundry deploy .env , makeAddr, 
 2. Hierarchical Deterministic Wallets
 3. summary
+4. foundry test / script func

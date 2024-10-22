@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "ethers": "^6.13.4",
-    "viem": "^2.21.30"
-  },
-  "name": "readNFT.ts",
-  "version": "1.0.0",
-  "type": "module"
-}
