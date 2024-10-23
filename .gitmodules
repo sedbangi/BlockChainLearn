@@ -7,3 +7,6 @@
 [submodule "12_foundry_signature/lib/forge-std"]
 	path = 12_foundry_signature/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "12_foundry_signature/lib/openzeppelin-contracts"]
+	path = 12_foundry_signature/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
