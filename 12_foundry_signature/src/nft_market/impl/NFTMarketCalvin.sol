@@ -107,7 +107,7 @@ contract NFTMarketCalvin is INFTMarket, IERC1363Receiver {
         require(verify(whiteList,v,r,s),"invalid white list");
         //check in list
         for(uint i = 0; i<whiteList.whiteList.length;i++){
-            if(whiteList.whiteList[0] == msg.sender){
+            if(whiteList.whiteList[i] == msg.sender){
                 //allow to buyNFT
                 buyNFT(nftTokenId);
                 return;
