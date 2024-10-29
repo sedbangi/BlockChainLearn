@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.0;
 
 import "fs/Test.sol";
 import "src/2_nft_market/IERC20Token.sol";

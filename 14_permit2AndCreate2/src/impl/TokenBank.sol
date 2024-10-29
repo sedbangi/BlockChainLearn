@@ -2,12 +2,13 @@
 
 pragma solidity ^0.8.0;
 
+import "../../lib/openzeppelin-contracts/contracts/utils/Strings.sol";
+import "../../lib/permit2/src/Permit2.sol";
+import "../../lib/permit2/src/interfaces/ISignatureTransfer.sol";
+import "../IEIP2612.sol";
 import "../IERC20Bank.sol";
 import "../IERC20Token.sol";
-import "../IEIP2612.sol";
 import {console} from "../../lib/forge-std/src/console.sol";
-import "../IPermit2.sol";
-import "../../lib/openzeppelin-contracts/contracts/utils/Strings.sol";
 
 contract TokenBank is IERC20Bank {
     modifier onlyOwner() {
@@ -71,19 +72,24 @@ contract TokenBank is IERC20Bank {
         balances[permit.owner][boundTokenAddress] += permit.value;
     }
 
-    function depositWithPermit2(
-        IPermit2.Permit2 calldata permit2,
-        address _owner,
-        uint8 v,
-        bytes32 r,
-        bytes32 s
-    ) external {
-        //check to == address(this)  (deposit)
-        require(permit2.to == address (this),"invalid to");
-        //verify signature valid and msg.sender == signer
-        IPermit2(permit2Address).permit2TransferFrom(permit2,_owner,v,r,s);
-        //change balances
-        balances[msg.sender][permit2.token] += permit2.amount;
-    }
 
+    function depositWithPermit2(
+        ISignatureTransfer.PermitBatchTransferFrom memory permit,
+        ISignatureTransfer.SignatureTransferDetails[] calldata transferDetails,
+        address owner,
+        bytes calldata signature
+    ) external {
+        //permitTransferFrom
+        Permit2(permit2Address).permitTransferFrom(permit, transferDetails, owner, signature);
+        //change balances
+        for (uint i = 0; i < permit.permitted.length; i++) {
+            address receiver = transferDetails[i].to;
+            if(receiver != address (this)){
+                continue;
+            }
+            address token = permit.permitted[i].token;
+            uint256 amount = transferDetails[i].requestedAmount;
+            balances[msg.sender][token] += amount;
+        }
+    }
 }

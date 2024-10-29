@@ -1,16 +1,16 @@
 "use client";
-import { useState, useEffect } from "react";
-import { formatEther, getContract, parseUnits, Address, Hex, Hash, hexToNumber, pad, slice, toHex, TypedDataDomain} from "viem";
+import {useEffect, useState} from "react";
+import {Address, getContract, Hash, parseUnits, TypedDataDomain} from "viem";
 
-import { wagmi2612Abi } from "./abi_erc2612";
-import { tokenBankAbi } from "./abi_tokenbank";
-import { permit2Abi } from "./abi_permit2";
+import {wagmi2612Abi} from "./abi_erc2612";
+import {tokenBankAbi} from "./abi_tokenbank";
+import {permit2Abi} from "./abi_permit2";
 
-import { ConnectWalletClient, ConnectPublicClient } from "./client";
+import {ConnectPublicClient, ConnectWalletClient} from "./client";
 
-const erc2612Address = "0xAE1E27EB4d39B63A93351c11e81800F183fE13a1"
-const tokenBankAddress = "0xa67050df6f731B5669d0a94F51C9425811e9821e"
-const permit2Address = "0x45c2013C2172622b5AcD624DD752323712fFB7c8"
+const erc2612Address = "0xcBf4c2b040A68970635C7993D718A9CE2be56103"
+const tokenBankAddress = "0x0B4D1E58332C5c0Dab37934bA1012df0c7389B9E"
+const permit2Address = "0xf3E1258C869867AeB13421EB6a4B0E7Ff13049F4"
 
 const walletClient = ConnectWalletClient();
 const publicClient = ConnectPublicClient();
@@ -131,58 +131,65 @@ export default function Deposit() {
 
 
   async function handlePermitDeposit() {
-
-    const nonce = await permit2?.read.nonces([address]);
+    const uint8Array = new Uint8Array(32); // 假设你已经有一个 32 字节的 Uint8Array
+    window.crypto.getRandomValues(uint8Array);
+    const nonce = uint8ArrayToBigInt(uint8Array)
     console.log("nonce:" + nonce);
 
-    const expire = BigInt(Math.floor(Date.now() / 1000) + 100_000);
+    const deadline = BigInt(Math.floor(Date.now() / 1000) + 100_000);
     const amount = parseUnits('1', 18);
 
     const chainId = await publicClient.getChainId();
     
     const domainData : TypedDataDomain =  {
-        name: 'Permit2',
-        version: '1',
+        name: "Permit2",
         chainId: chainId,
         verifyingContract: permit2Address
     }
 
     const types = {
-        Permit2: [
-          {name: "token", type: "address"},
-          {name: "to", type: "address"},
-          {name: "amount", type: "uint256"},
-          {name: "expire", type: "uint256"},
-          {name: "nonce", type: "uint256"}
-        ]
+      PermitBatchTransferFrom: [
+        {name: "permitted", type: "TokenPermissions[]"},
+        {name: "spender", type: "address"},
+        {name: "nonce", type: "uint256"},
+        {name: "deadline", type: "uint256"}
+      ],
+      TokenPermissions: [
+        {name: "token", type: "address"},
+        {name: "amount", type: "uint256"},
+      ]
     }
 
     const message = {
-        token: erc2612Address,
-        to: tokenBankAddress,
-        amount: amount,
-        expire: expire,
-        nonce: nonce
+      permitted: [
+        {
+          token: erc2612Address,
+          amount: allowanced
+        }
+      ],
+      spender: tokenBankAddress,
+      nonce: nonce,
+      deadline: deadline
     }
 
     const signature = await walletClient.signTypedData({
       account: address as `0x${string}`,
       domain: domainData,
       types: types,
-      primaryType: 'Permit2',
+      primaryType: 'PermitBatchTransferFrom',
       message: message
     })
 
     console.log(signature);
 
-    const [r, s, v] = [
-      slice(signature, 0, 32),
-      slice(signature, 32, 64),
-      slice(signature, 64, 65),
+    const transferDetails = [
+      {
+        to: tokenBankAddress,
+        requestedAmount: amount
+      }
     ];
 
-
-    const hash = await tokenBank.write.depositWithPermit2([message,address, hexToNumber(v), r, s], {account: address})
+    const hash = await tokenBank.write.depositWithPermit2([message,transferDetails,address, signature], {account: address})
 
     console.log(`deposit hash: ${hash} `);
 
@@ -227,6 +234,13 @@ export default function Deposit() {
   );
 }
 
+function uint8ArrayToBigInt(uint8Array) {
+  let bigInt = BigInt(0);
+  for (let i = 0; i < uint8Array.length; i++) {
+    bigInt = (bigInt << BigInt(8)) | BigInt(uint8Array[i]);
+  }
+  return bigInt;
+}
 
 function Status({
   address,

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.0;
 
 import "../../lib/forge-std/src/Script.sol";
 import {MyToken} from "../../src/3_deploy/MyToken.sol";

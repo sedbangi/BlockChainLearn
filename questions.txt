@@ -8,3 +8,9 @@
 8. string array
 9. how to use vscode (import ,source code)
 10. proxy (1. change proxy -> mintToken 2. change impl -> upgrade )
+11. draw pics for eip712 2612 permit2
+
+permit2 :allow spender to specify which of the permitted tokens should be transferred
+    1. owner specify spender multi tokens with limitation
+    2. only spender can call permit2
+    3. spender can specify how permitted tokens were spent
