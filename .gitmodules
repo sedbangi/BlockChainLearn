@@ -20,3 +20,6 @@
 [submodule "14_permit2AndCreate2/lib/permit2"]
 	path = 14_permit2AndCreate2/lib/permit2
 	url = https://github.com/Uniswap/permit2
+[submodule "14_permit2AndCreate2/lib/clone-factory"]
+	path = 14_permit2AndCreate2/lib/clone-factory
+	url = https://github.com/optionality/clone-factory
