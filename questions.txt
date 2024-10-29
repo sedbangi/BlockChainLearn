@@ -6,3 +6,5 @@
 6. abstract erc20 bank erc721 nft-market sign  signature+transferFrom
 7. rewrite 14
 8. string array
+9. how to use vscode (import ,source code)
+10. proxy (1. change proxy -> mintToken 2. change impl -> upgrade )
