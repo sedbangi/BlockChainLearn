@@ -17,3 +17,6 @@
 [submodule "14_permit2AndCreate2/lib/openzeppelin-contracts"]
 	path = 14_permit2AndCreate2/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "14_permit2AndCreate2/lib/permit2"]
+	path = 14_permit2AndCreate2/lib/permit2
+	url = https://github.com/Uniswap/permit2
