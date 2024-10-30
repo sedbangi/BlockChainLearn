@@ -2,14 +2,14 @@
 
 pragma solidity ^0.8.0;
 
-import "../../lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
+import "./ERC20ImplVersion.sol";
 
-contract Token is ERC20 {
+contract Token is ERC20ImplVersion {
 
     address public owner;
     bool public initialized;
 
-    constructor(string memory name_, string memory symbol_) ERC20(name_, symbol_) {
+    constructor() {
         owner = msg.sender;
     }
 
