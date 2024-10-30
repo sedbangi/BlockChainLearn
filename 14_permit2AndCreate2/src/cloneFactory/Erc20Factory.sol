@@ -20,14 +20,16 @@ contract Erc20Factory {
 
     //any user can call this to deploy token
     function deployInscription(string memory symbol, uint totalSupply, uint perMint) public returns (address){
-        address token = address (new Token(symbol, symbol));
-        tokens[token] = TokenAttribute({
+        Token token = new Token();
+        token.init(symbol,symbol);
+        address tokenAddress = address (token);
+        tokens[tokenAddress] = TokenAttribute({
             perMint: perMint,
             totalSupply: totalSupply
         });
 
-        emit TokenCreated(token);
-        return token;
+        emit TokenCreated(tokenAddress);
+        return tokenAddress;
     }
 
     //any user can only call this func to mint token.

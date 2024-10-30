@@ -1,15 +1,13 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-
-import "../lib/openzeppelin-contracts/contracts/proxy/transparent/TransparentUpgradeableProxy.sol";
 import "../src/cloneFactory/Erc20FactoryV2.sol";
+import "../lib/openzeppelin-foundry-upgrades/src/Upgrades.sol";
 import {Erc20Factory} from "../src/cloneFactory/Erc20Factory.sol";
 import {Test, console} from "forge-std/Test.sol";
 import {Token} from "../src/cloneFactory/Token.sol";
 
-
-contract EIP2612Test is Test {
+contract testFactory is Test {
     address tokenAddress;
     address factoryAddress;
     address factory2Address;
@@ -19,7 +17,6 @@ contract EIP2612Test is Test {
     Token token;
     Erc20Factory factory;
     Erc20FactoryV2 factoryV2;
-    TransparentUpgradeableProxy proxy;
 
 
     function setUp() public {
@@ -29,8 +26,7 @@ contract EIP2612Test is Test {
         factoryAddress = address (factory);
         //proxy
         vm.prank(proxyOwner);
-        proxy = new TransparentUpgradeableProxy(factoryAddress,proxyOwner,bytes(""));
-        proxyAddress = address (proxy);
+        proxyAddress = Upgrades.deployTransparentProxy("Erc20Factory.sol",proxyOwner,bytes(""));
     }
 
     function test_factory_deploy_mint() public {
@@ -73,7 +69,7 @@ contract EIP2612Test is Test {
         address factoryDeployer = vm.randomAddress();
         vm.startPrank(factoryDeployer);
         //deploy erc20 impl
-        token = new Token("IMPL","IMPL");
+        token = new Token();
         tokenAddress = address (token);
         //deploy factoryV2
         factoryV2 = new Erc20FactoryV2();
@@ -92,14 +88,12 @@ contract EIP2612Test is Test {
 
         //upgrade v1 to v2
         vm.prank(proxyOwner);
-//        ITransparentUpgradeableProxy(proxyAddress).upgradeToAndCall(factory2Address,bytes (""));
-
+        Upgrades.upgradeProxy(proxyAddress, "Erc20FactoryV2.sol", bytes(""));
         //proxy state
         Erc20FactoryV2 factoryProxyV2 = Erc20FactoryV2(proxyAddress);
         (uint perMintV2, uint totalSupply2, uint price) = factoryProxyV2.tokens(v1TokenAddr);
         console.log(perMintV2);
         console.log(totalSupply2);
-
         //check state after upgrade
 
 
