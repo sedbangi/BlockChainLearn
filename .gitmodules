@@ -26,3 +26,6 @@
 [submodule "14_permit2AndCreate2/lib/openzeppelin-foundry-upgrades"]
 	path = 14_permit2AndCreate2/lib/openzeppelin-foundry-upgrades
 	url = https://github.com/OpenZeppelin/openzeppelin-foundry-upgrades
+[submodule "14_permit2AndCreate2/lib/openzeppelin-contracts-upgradeable"]
+	path = 14_permit2AndCreate2/lib/openzeppelin-contracts-upgradeable
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable
