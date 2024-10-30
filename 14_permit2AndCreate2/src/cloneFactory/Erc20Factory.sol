@@ -15,9 +15,6 @@ contract Erc20Factory {
         uint totalSupply;
     }
 
-    event TokenCreated(address newTokenAddress);
-    event TokenMinted(address to, address tokenAddress, uint amount);
-
     //any user can call this to deploy token
     function deployInscription(string memory symbol, uint totalSupply, uint perMint) public returns (address){
         Token token = new Token();
@@ -28,7 +25,6 @@ contract Erc20Factory {
             totalSupply: totalSupply
         });
 
-        emit TokenCreated(tokenAddress);
         return tokenAddress;
     }
 
@@ -41,6 +37,5 @@ contract Erc20Factory {
         require(token.totalSupply() + tokenAttribute.perMint < tokenAttribute.totalSupply, "have reached to totalSupply");
         Token(tokenAddr).mint(msg.sender, tokenAttribute.perMint);
 
-        emit TokenMinted(msg.sender, tokenAddr, tokenAttribute.perMint);
     }
 }

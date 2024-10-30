@@ -9,6 +9,7 @@
 9. how to use vscode (import ,source code)
 10. proxy (1. change proxy -> mintToken 2. change impl -> upgrade )
 11. draw pics for eip712 2612 permit2
+12. proxy add attribute
 
 permit2 :allow spender to specify which of the permitted tokens should be transferred
     1. owner specify spender multi tokens with limitation
