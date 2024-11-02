@@ -18,30 +18,30 @@ import {
 } from "../generated/schema"
 
 export function handleCancel(event: CancelEvent): void {
-  let entity = new Cancel(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  )
-  entity.orderId = event.params.orderId
+  // let entity = new Cancel(
+  //   event.transaction.hash.concatI32(event.logIndex.toI32())
+  // )
+  // entity.orderId = event.params.orderId
 
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
+  // entity.blockNumber = event.block.number
+  // entity.blockTimestamp = event.block.timestamp
+  // entity.transactionHash = event.transaction.hash
 
-  entity.save()
+  // entity.save()
 }
 
 export function handleEIP712DomainChanged(
   event: EIP712DomainChangedEvent
 ): void {
-  let entity = new EIP712DomainChanged(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  )
+  // let entity = new EIP712DomainChanged(
+  //   event.transaction.hash.concatI32(event.logIndex.toI32())
+  // )
 
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
+  // entity.blockNumber = event.block.number
+  // entity.blockTimestamp = event.block.timestamp
+  // entity.transactionHash = event.transaction.hash
 
-  entity.save()
+  // entity.save()
 }
 
 export function handleList(event: ListEvent): void {
@@ -66,43 +66,43 @@ export function handleList(event: ListEvent): void {
 export function handleOwnershipTransferred(
   event: OwnershipTransferredEvent
 ): void {
-  let entity = new OwnershipTransferred(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  )
-  entity.previousOwner = event.params.previousOwner
-  entity.newOwner = event.params.newOwner
+  // let entity = new OwnershipTransferred(
+  //   event.transaction.hash.concatI32(event.logIndex.toI32())
+  // )
+  // entity.previousOwner = event.params.previousOwner
+  // entity.newOwner = event.params.newOwner
 
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
+  // entity.blockNumber = event.block.number
+  // entity.blockTimestamp = event.block.timestamp
+  // entity.transactionHash = event.transaction.hash
 
-  entity.save()
+  // entity.save()
 }
 
 export function handleSetFeeTo(event: SetFeeToEvent): void {
-  let entity = new SetFeeTo(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  )
-  entity.to = event.params.to
+  // let entity = new SetFeeTo(
+  //   event.transaction.hash.concatI32(event.logIndex.toI32())
+  // )
+  // entity.to = event.params.to
 
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
+  // entity.blockNumber = event.block.number
+  // entity.blockTimestamp = event.block.timestamp
+  // entity.transactionHash = event.transaction.hash
 
-  entity.save()
+  // entity.save()
 }
 
 export function handleSetWhiteListSigner(event: SetWhiteListSignerEvent): void {
-  let entity = new SetWhiteListSigner(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  )
-  entity.signer = event.params.signer
+  // let entity = new SetWhiteListSigner(
+  //   event.transaction.hash.concatI32(event.logIndex.toI32())
+  // )
+  // entity.signer = event.params.signer
 
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
+  // entity.blockNumber = event.block.number
+  // entity.blockTimestamp = event.block.timestamp
+  // entity.transactionHash = event.transaction.hash
 
-  entity.save()
+  // entity.save()
 }
 
 export function handleSold(event: SoldEvent): void {
