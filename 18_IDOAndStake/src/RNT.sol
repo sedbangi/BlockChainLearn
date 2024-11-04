@@ -12,9 +12,9 @@ contract RNT is ERC20Permit {
         _mint(msg.sender,100*10**18);
     }
 
-    modifier OnlyOwner(){
-        require(msg.sender == owner, "Only Owner");
-        _;
+
+    function burn(uint amount) public {
+        _burn(msg.sender, amount);
     }
 
 }
