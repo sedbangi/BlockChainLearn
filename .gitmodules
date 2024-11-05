@@ -41,3 +41,6 @@
 [submodule "18_IDOAndStake/lib/openzeppelin-contracts"]
 	path = 18_IDOAndStake/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "19_storageSlot/contracts/lib/forge-std"]
+	path = 19_storageSlot/contracts/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
