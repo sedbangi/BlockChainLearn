@@ -35,7 +35,7 @@ contract Erc20Factory {
 
         Token token = Token(tokenAddr);
         require(token.totalSupply() + tokenAttribute.perMint < tokenAttribute.totalSupply, "have reached to totalSupply");
-        Token(tokenAddr).mint(msg.sender, tokenAttribute.perMint);
+        token.mint(msg.sender, tokenAttribute.perMint);
 
     }
 }

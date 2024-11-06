@@ -27,7 +27,7 @@ contract DeployFactory is Script {
         );
         vm.stopBroadcast();
 
-        console.log("addr:", vm.addr(vm.envUint("privateKey")));
+        console.log("addr:", addr);
         console.log("proxy addr:", proxyAddress);
         console.log("v1 addr:", factoryV1Addr);
         console.log("v2 addr:", Upgrades.getImplementationAddress(proxyAddress));

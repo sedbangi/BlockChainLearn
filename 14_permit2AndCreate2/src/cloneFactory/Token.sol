@@ -2,16 +2,13 @@
 
 pragma solidity ^0.8.0;
 
-import "./ERC20ImplVersion.sol";
+import {ERC20Upgradeable} from "../../lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol";
 
-contract Token is ERC20ImplVersion {
+
+contract Token is ERC20Upgradeable {
 
     address public owner;
     bool public initialized;
-
-    constructor() {
-        owner = msg.sender;
-    }
 
     modifier OnlyOwner{
         require(msg.sender == owner, "Not Owner");
@@ -22,13 +19,9 @@ contract Token is ERC20ImplVersion {
         _mint(to, amount);
     }
 
-    function init(string memory name, string memory symbol) public {
-        require(!initialized, "have initialized");
-        //change _name and _symbol from private to internal
-        _name = name;
-        _symbol = symbol;
+    function init(string memory name, string memory symbol) public initializer {
+        __ERC20_init(name,symbol);
         owner = msg.sender;
-        initialized = true;
     }
 
 }

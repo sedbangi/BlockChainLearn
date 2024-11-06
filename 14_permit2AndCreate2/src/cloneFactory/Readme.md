@@ -1,13 +1,14 @@
 
-proxy addr: 0xBd4A21cF2F47B182E131EeAaDBef2D570f3B3A23<br>
-v1 addr: 0x40423383A94bbb0A22FA4E6A8fC0F97E03B482D2<br>
-v2 addr: 0x2cfa10ecfF94E0971505a78dF9A91cdE671ed607<br>
+proxy addr: 0x2bF95Ed94C86eb4F33f98cfC0907Fd640ae5672d<br>
+v1 addr: 0x647d02Db91616e6F0b6a15CBA51e71e5f08A537a<br>
+v2 addr: 0x2158E643ABBAe9383954e59E02D479Ef1D96E785<br>
 `/script/DeployFactory.sol`<br>
 
+1. user(token minter) call proxy(factory) to deploy token(with `new`).
+2. any user can only call proxy(factory) to mint(only through call the owner of token) token.
+3. deploy factoryV2 and **upgrade** **proxy**
+4. factoryV2 change deploy token from `new` to **`EIP-1167`** and add some features
 
-1. user(token launcher) call proxy(factory) to deploy token(with `new`).
-2. any user can only call proxy(factory) to mint(only through owner) token.
-3. deploy factoryV2 and upgrade proxy
-4. factoryV2 change deploy token from `new` to `EIP-1167`
-
-> proxy&Upgrade: /OpenZeppelin/openzeppelin-foundry-upgrades
+> proxy&Upgrade: https://github.com/OpenZeppelin/openzeppelin-foundry-upgrades/blob/main/README.md
+> 
+> EIP-1167: https://github.com/optionality/clone-factory/blob/master/contracts/CloneFactory.sol

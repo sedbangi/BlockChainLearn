@@ -59,7 +59,7 @@ contract Erc20FactoryV2 is CloneFactory, Initializable{
         require(token.totalSupply() + tokenAttribute.perMint < tokenAttribute.totalSupply, "have reached to totalSupply");
         require(tokenAttribute.price*tokenAttribute.perMint == msg.value,"wrong eth value");
 
-        Token(tokenAddr).mint(msg.sender, tokenAttribute.perMint);
+        token.mint(msg.sender, tokenAttribute.perMint);
 
     }
 
