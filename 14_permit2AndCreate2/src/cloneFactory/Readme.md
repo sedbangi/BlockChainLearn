@@ -1,7 +1,7 @@
 
-proxy addr: 0x2bF95Ed94C86eb4F33f98cfC0907Fd640ae5672d<br>
-v1 addr: 0x647d02Db91616e6F0b6a15CBA51e71e5f08A537a<br>
-v2 addr: 0x2158E643ABBAe9383954e59E02D479Ef1D96E785<br>
+proxy addr: 0x40b4189BD0177dA638C4869C591f11e130589EbB<br>
+v1 addr: 0xBb1E44B3e02f5c7F88f3C35EfC4aEFe81eCB1BF1<br>
+v2 addr: 0x71F6A7AFD5aAAD35d0E295460632Ed132A4dba66<br>
 `/script/DeployFactory.sol`<br>
 
 1. user(token minter) call proxy(factory) to deploy token(with `new`).
