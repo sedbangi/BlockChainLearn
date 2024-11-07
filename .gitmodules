@@ -56,3 +56,6 @@
 [submodule "20_UpgradeProxy/lib/openzeppelin-contracts"]
 	path = 20_UpgradeProxy/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "20_UpgradeProxy/lib/openzeppelin-contracts-upgradeable"]
+	path = 20_UpgradeProxy/lib/openzeppelin-contracts-upgradeable
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable
