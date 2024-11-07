@@ -44,3 +44,6 @@
 [submodule "19_storageSlot/contracts/lib/forge-std"]
 	path = 19_storageSlot/contracts/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "21_OptimizeGas/contracts/lib/forge-std"]
+	path = 21_OptimizeGas/contracts/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
