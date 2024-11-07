@@ -53,3 +53,6 @@
 [submodule "20_UpgradeProxy/lib/forge-std"]
 	path = 20_UpgradeProxy/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "20_UpgradeProxy/lib/openzeppelin-contracts"]
+	path = 20_UpgradeProxy/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
