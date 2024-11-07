@@ -11,6 +11,8 @@
 11. draw pics for eip712 2612 permit2
 12. proxy add attribute
 13. study proxy impl
+14. create2 create3
+15. IPFS
 
 
 permit2 :allow spender to specify which of the permitted tokens should be transferred
