@@ -9,7 +9,12 @@ contract Bank {
     mapping(address => address) public userAddresses;
     address private constant GUARD = address(1);
     //defination: size include GUARD
-    uint256 public listSize = 1;
+    uint256 public listSize;
+
+    constructor() {
+        userAddresses[GUARD] = GUARD;
+        listSize++;
+    }
 
     //deposit(balance+ , sort)
     function deposit() public payable {
