@@ -12,12 +12,11 @@ contract DeployFactory is Script {
     function run() public {
         vm.startBroadcast(vm.envUint("privateKey"));
         address addr = vm.addr(vm.envUint("privateKey"));
-        //factoryV1Addr
-        address factoryV1Addr = address (new Erc20Factory());
-
         //proxy
         bytes memory initData = new bytes(0);
         address proxyAddress = Upgrades.deployTransparentProxy("Erc20Factory.sol",addr,initData);
+        //factoryV1Addr
+        address factoryV1Addr = Upgrades.getImplementationAddress(proxyAddress);
 
         //upgrade
         Upgrades.upgradeProxy(
@@ -25,11 +24,13 @@ contract DeployFactory is Script {
             "Erc20FactoryV2.sol",
             abi.encodeCall(Erc20FactoryV2.initialize, (addr))
         );
+        //factoryV2Addr
+        address factoryV2Addr = Upgrades.getImplementationAddress(proxyAddress);
         vm.stopBroadcast();
 
         console.log("addr:", addr);
         console.log("proxy addr:", proxyAddress);
         console.log("v1 addr:", factoryV1Addr);
-        console.log("v2 addr:", Upgrades.getImplementationAddress(proxyAddress));
+        console.log("v2 addr:", factoryV2Addr);
     }
 }
