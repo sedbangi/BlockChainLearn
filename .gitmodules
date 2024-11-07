@@ -47,3 +47,6 @@
 [submodule "21_OptimizeGas/contracts/lib/forge-std"]
 	path = 21_OptimizeGas/contracts/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "21_OptimizeGas/contracts/lib/openzeppelin-contracts"]
+	path = 21_OptimizeGas/contracts/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
