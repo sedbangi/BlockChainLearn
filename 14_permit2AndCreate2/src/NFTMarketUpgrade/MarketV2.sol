@@ -3,11 +3,13 @@
 
 import "../../lib/openzeppelin-contracts/contracts/interfaces/IERC1363Receiver.sol";
 import "../../lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol";
-import "../../lib/forge-std/src/interfaces/IERC721.sol";
+import "../../lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "../../lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
-import "../../lib/permit2/src/interfaces/IEIP712.sol";
+import {EIP712Upgradeable} from "../../lib/openzeppelin-contracts-upgradeable/contracts/utils/cryptography/EIP712Upgradeable.sol";
+import "../../lib/forge-std/src/console.sol";
 
-contract Market is IERC1363Receiver, Initializable {
+/// @custom:oz-upgrades-from Market
+contract MarketV2 is IERC1363Receiver, EIP712Upgradeable {
 
     address public tokenAddress;
     address public nftAddress;
@@ -19,40 +21,22 @@ contract Market is IERC1363Receiver, Initializable {
         uint price;
         address seller;
     }
-
-    struct EIP712Domain {
-        string name;
-        string version;
-        uint256 chainId;
-        address verifyingContract;
-    }
-
-    bytes32 DOMAIN_SEPARATOR;
-    bytes32 constant EIP712DOMAIN_TYPEHASH = keccak256("EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)");
     bytes32 private constant LIST_INFO_TYPE_HASH = keccak256(
         "ListInfo(uint256 tokenId,uint256 price,address seller)"
     );
 
-
-    function init(string memory _tokenAddress, string memory _nftAddress) public initializer {
+    function init(address _tokenAddress, address _nftAddress) public reinitializer(2) {
         tokenAddress = _tokenAddress;
         nftAddress = _nftAddress;
-        DOMAIN_SEPARATOR = hashStruct(
-            EIP712Domain({
-                name: "MarketV2",
-                version: "1",
-                chainId: block.chainid,
-                verifyingContract: address(this)
-            })
-        );
+        __EIP712_init("calvin", "1");
     }
 
 
-    function buyWithSignature(ListInfo listInfo, uint8 v, bytes32 r, bytes32 s) public {
+    function buyWithSignature(ListInfo memory listInfo, uint8 v, bytes32 r, bytes32 s) public {
         //check: verify signature
         require(verify(listInfo, v, r, s), "invalid signature");
 
-        IERC721 nft = IERC721(nftAddress);
+        ERC721URIStorage nft = ERC721URIStorage(nftAddress);
         address seller = listInfo.seller;
         uint tokenId = listInfo.tokenId;
         uint price = listInfo.price;
@@ -84,27 +68,11 @@ contract Market is IERC1363Receiver, Initializable {
         bytes32 r,
         bytes32 s
     ) internal view returns (bool) {
-        bytes32 digest = keccak256(
-            abi.encodePacked("\x19\x01", DOMAIN_SEPARATOR, hashStruct(listInfo))
-        );
+        bytes32 digest = _hashTypedDataV4(hashStruct(listInfo));
         //ensure the signer match the seller in limitOrder
         return ecrecover(digest, v, r, s) == listInfo.seller;
     }
 
-    function hashStruct(
-        IEIP2612.EIP712Domain memory eip712Domain
-    ) internal pure returns (bytes32) {
-        return
-            keccak256(
-            abi.encode(
-                EIP712DOMAIN_TYPEHASH,
-                keccak256(bytes(eip712Domain.name)),
-                keccak256(bytes(eip712Domain.version)),
-                eip712Domain.chainId,
-                eip712Domain.verifyingContract
-            )
-        );
-    }
 
     function hashStruct(ListInfo memory listInfo) internal pure returns (bytes32) {
         return
@@ -120,7 +88,7 @@ contract Market is IERC1363Receiver, Initializable {
 
 
     function list(uint tokenId, uint price) public {
-        IERC721 nft = IERC721(nftAddress);
+        ERC721URIStorage nft = ERC721URIStorage(nftAddress);
         require(nft.ownerOf(tokenId) != address(0), "tokenId must exist");
         require(
             msg.sender == nft.ownerOf(tokenId)
@@ -136,7 +104,7 @@ contract Market is IERC1363Receiver, Initializable {
     }
 
     function buyNFT(uint tokenId) public {
-        IERC721 nft = IERC721(nftAddress);
+        ERC721URIStorage nft = ERC721URIStorage(nftAddress);
         address seller = listInfos[tokenId].seller;
         uint price = listInfos[tokenId].price;
 
@@ -148,7 +116,7 @@ contract Market is IERC1363Receiver, Initializable {
         //transfer token to seller
         IERC20(tokenAddress).transferFrom(msg.sender, seller, price);
         //unlist tokenId
-        listInfos[tokenId] = 0;
+        listInfos[tokenId] = ListInfo(0,0,address (0));
     }
 
     function onTransferReceived(
@@ -160,7 +128,7 @@ contract Market is IERC1363Receiver, Initializable {
         require(msg.sender == tokenAddress, "not support this token");
         (uint tokenId) = abi.decode(data, (uint));
 
-        IERC721 nft = IERC721(nftAddress);
+        ERC721URIStorage nft = ERC721URIStorage(nftAddress);
         IERC20 erc20Token = IERC20(tokenAddress);
         address seller = listInfos[tokenId].seller;
         uint price = listInfos[tokenId].price;
@@ -172,7 +140,7 @@ contract Market is IERC1363Receiver, Initializable {
         //transfer token to seller
         erc20Token.transfer(seller, price);
         //unlist tokenId
-        listInfos[tokenId] = 0;
+        listInfos[tokenId] = ListInfo(0,0,address (0));
 
         return bytes4(keccak256("onTransferReceived(address,address,uint256,bytes)"));
     }

@@ -5,6 +5,8 @@ import "../../lib/openzeppelin-contracts/contracts/interfaces/IERC1363Receiver.s
 
 contract Token is ERC20 {
 
+    constructor(string memory _name,string memory _symbol) ERC20(_name,_symbol) {}
+
     function transferAndCall(
         address to,
         uint256 value,
