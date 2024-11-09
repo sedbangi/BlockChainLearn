@@ -13,7 +13,7 @@
 13. study proxy impl
 14. create2 create3
 15. IPFS
-
+16. EIP2612 is a standard impl for erc20 permit based on eip-712
 
 permit2 :allow spender to specify which of the permitted tokens should be transferred
     1. owner specify spender multi tokens with limitation
