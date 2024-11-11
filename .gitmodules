@@ -62,3 +62,6 @@
 [submodule "22_automationExecute/lib/forge-std"]
 	path = 22_automationExecute/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "22_automationExecute/lib/openzeppelin-contracts"]
+	path = 22_automationExecute/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
