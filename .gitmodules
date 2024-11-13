@@ -62,3 +62,6 @@
 [submodule "23_uniswapV2AMM/lib/forge-std"]
 	path = 23_uniswapV2AMM/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "23_uniswapV2AMM/lib/v2-core"]
+	path = 23_uniswapV2AMM/lib/v2-core
+	url = https://github.com/Uniswap/v2-core
