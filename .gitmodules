@@ -68,3 +68,6 @@
 [submodule "23_uniswapV2AMM/lib/v2-periphery"]
 	path = 23_uniswapV2AMM/lib/v2-periphery
 	url = https://github.com/Uniswap/v2-periphery
+[submodule "23_uniswapV2AMM/lib/openzeppelin-contracts"]
+	path = 23_uniswapV2AMM/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
