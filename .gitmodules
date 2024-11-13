@@ -65,3 +65,6 @@
 [submodule "23_uniswapV2AMM/lib/v2-core"]
 	path = 23_uniswapV2AMM/lib/v2-core
 	url = https://github.com/Uniswap/v2-core
+[submodule "23_uniswapV2AMM/lib/v2-periphery"]
+	path = 23_uniswapV2AMM/lib/v2-periphery
+	url = https://github.com/Uniswap/v2-periphery
