@@ -59,9 +59,3 @@
 [submodule "22_automationExecute/lib/openzeppelin-contracts"]
 	path = 22_automationExecute/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
-[submodule "23_uniswapAMM/lib/v2-core"]
-	path = 23_uniswapAMM/lib/v2-core
-	url = https://github.com/Uniswap/v2-core
-[submodule "23_uniswapAMM/lib/openzeppelin-contracts"]
-	path = 23_uniswapAMM/lib/openzeppelin-contracts
-	url = https://github.com/OpenZeppelin/openzeppelin-contracts
