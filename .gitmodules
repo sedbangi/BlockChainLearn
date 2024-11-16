@@ -71,3 +71,6 @@
 [submodule "23_uniswapV2AMM/lib/openzeppelin-contracts"]
 	path = 23_uniswapV2AMM/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "24_rate_algo/lib/forge-std"]
+	path = 24_rate_algo/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
