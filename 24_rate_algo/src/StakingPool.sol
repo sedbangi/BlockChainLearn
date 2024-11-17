@@ -3,7 +3,6 @@ pragma solidity ^0.8.23;
 
 import {IStaking} from "./IStaking.sol";
 import "./IToken.sol";
-import "../lib/forge-std/src/console.sol";
 
 contract StakingPool is IStaking {
 
@@ -31,9 +30,7 @@ contract StakingPool is IStaking {
     function stake() payable external {
         require(msg.value != 0, "no eth sent");
         if(totalStaked != 0) {
-            console.log("totalStaked",totalStaked);
             accumulatedRate += (block.number - lastBlockNumber) * REWARDS_PER_BLOCK / totalStaked;
-            console.log("accumulatedRate",accumulatedRate);
         }
 
         if (userRewardInfos[msg.sender].staked != 0) {
@@ -69,9 +66,6 @@ contract StakingPool is IStaking {
         accumulatedRate += (block.number - lastBlockNumber) * REWARDS_PER_BLOCK / totalStaked;
 
         if (userRewardInfos[msg.sender].staked != 0) {
-            console.log("userRewardInfos[msg.sender].staked",userRewardInfos[msg.sender].staked);
-            console.log("accumulatedRate",accumulatedRate);
-            console.log("accumulatedRate",userRewardInfos[msg.sender].accumulatedRate);
             userRewardInfos[msg.sender].unClaimed +=
                 userRewardInfos[msg.sender].staked  * (accumulatedRate - userRewardInfos[msg.sender].accumulatedRate);
         }
