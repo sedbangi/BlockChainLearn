@@ -1,0 +1,131 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="第 1 页" id="6I-INeaZYqPqNqQLDi3_">
+    <mxGraphModel dx="2062" dy="2013" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-6" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-30" y="170" width="470" height="450" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="h5tnae8pYYeF3_KQgTqQ-1" target="h5tnae8pYYeF3_KQgTqQ-12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="210" y="20" />
+              <mxPoint x="720" y="20" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="h5tnae8pYYeF3_KQgTqQ-1" target="h5tnae8pYYeF3_KQgTqQ-46">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="20" />
+              <mxPoint x="-320" y="20" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-1" value="ERC20" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="170" y="140" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-2" value="1. 用户先允许bank使用自己的token&lt;div&gt;2. 让bank将token存入bank账户&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="490" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="270" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-4" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-20" y="270" width="210" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-5" value="token" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="230" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-7" value="bank" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="290" y="230" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-8" value="user" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="440" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-9" value="&lt;font color=&quot;#ff3333&quot;&gt;tansfer(): &lt;/font&gt;转出自己的钱（无需校验）&lt;div&gt;&lt;font color=&quot;#ff3333&quot;&gt;tansferFrom()：&lt;/font&gt;转出别人的钱，需要别人的允许&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#ff3333&quot;&gt;approve（）&lt;/font&gt;：许可&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-15" y="287.5" width="200" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-10" value="1. &lt;font color=&quot;#ff3333&quot;&gt;deposit（）&lt;/font&gt;用户将token交给bank&lt;div&gt;2. &lt;font color=&quot;#ff3333&quot;&gt;withdraw（）&lt;/font&gt;用户取款&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="300" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-11" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="170" width="470" height="450" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-12" value="ERC777" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="690" y="140" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-13" value="&lt;font color=&quot;#ff3333&quot;&gt;1. 用户可以不在银行而在token处实现存款&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="490" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-14" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="270" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-15" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="270" width="210" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-16" value="token" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="230" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-17" value="bank" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="810" y="230" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-18" value="user" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="690" y="440" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-19" value="&lt;font color=&quot;#ff3333&quot;&gt;send(xxx,data): &lt;/font&gt;修改token的balances，同时通过调用回调函数通知bank&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;\\\ERC20&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="507.5" y="287.5" width="195" height="102.5" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-20" value="1.&amp;nbsp;&lt;font color=&quot;#ff3333&quot;&gt;deposit（）&lt;/font&gt;用户将token交给bank&lt;div&gt;2.&amp;nbsp;&lt;font color=&quot;#ff3333&quot;&gt;withdraw（）&lt;/font&gt;用户取款&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;3. receiveFunc（）：接收token回调&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="761" y="300" width="159" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-22" value="ERC20的问题：&lt;div&gt;1. 转账无法携带其他信息&lt;/div&gt;&lt;div&gt;2. 没有转账回调（bank无法收到token的信息）&lt;/div&gt;&lt;div&gt;3. &lt;font color=&quot;#ff3333&quot;&gt;两次操作&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="130" y="-90" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-33" value="利：一次操作，兼容ERC20&lt;div&gt;弊：bank也要遵守规则&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="610" y="-80" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-34" value="&lt;font color=&quot;#ff3333&quot;&gt;有利有弊&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="430" y="-80" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-45" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-550" y="170" width="470" height="450" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-46" value="ERC1363" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="-350" y="140" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-47" value="&lt;span style=&quot;color: rgb(255, 51, 51);&quot;&gt;1. 用户可以不在银行而在token处实现存款&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-420" y="490" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-48" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-300" y="270" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-49" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-540" y="270" width="210" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-50" value="token" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-480" y="230" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-51" value="bank" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-230" y="230" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-52" value="user" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-350" y="440" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-53" value="&lt;font color=&quot;#ff3333&quot;&gt;tansferAndCall(): &lt;/font&gt;转出自己的钱（无需校验）&lt;div&gt;&lt;font color=&quot;#ff3333&quot;&gt;tansferFromAndCall()：&lt;/font&gt;转出别人的钱，需要别人的允许&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#ff3333&quot;&gt;approveAndCall（）&lt;/font&gt;：许可&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;\\\ERC20&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-535" y="287.5" width="200" height="102.5" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-54" value="1. &lt;font color=&quot;#ff3333&quot;&gt;deposit（）&lt;/font&gt;用户将token交给bank&lt;div&gt;2. &lt;font color=&quot;#ff3333&quot;&gt;withdraw（）&lt;/font&gt;用户取款&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;3. receiveFunc（）：接收token回调&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-280" y="300" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-56" value="&lt;font color=&quot;#ff3333&quot;&gt;有利有弊&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-120" y="-80" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="h5tnae8pYYeF3_KQgTqQ-57" value="利：新增一次操作,兼容ERC20&lt;div&gt;弊：bank也要遵守规则&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-390" y="-70" width="150" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
